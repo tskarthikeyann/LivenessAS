@@ -1,5 +1,7 @@
 package com.example.cameratest.activities;
 
+import org.opencv.android.OpenCVLoader;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -26,10 +28,19 @@ public class LidaActivity extends Activity {
      * 进度条提示框
      */
     public static ProgressDialog progressDialog;
-
+    
+    ///load so file
+    static{
+    	OpenCVLoader.initDebug();
+    	System.loadLibrary("liveness");	
+    }
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+   
+       
         progressDialog = new ProgressDialog(this);
         lidaActivity = this;
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);//竖屏

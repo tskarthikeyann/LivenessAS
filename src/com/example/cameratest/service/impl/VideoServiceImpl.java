@@ -6,6 +6,7 @@ import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 import android.hardware.Camera.PreviewCallback;
 import android.media.MediaRecorder;
 import android.util.Log;
@@ -20,6 +21,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
+
+import org.opencv.android.Utils;
+import org.opencv.core.Mat;
 
 /**
  * 录音实现类
@@ -292,7 +296,10 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
             //获取摄像头参数对象
             m_p = camera.getParameters();
             
+            //我写的
             m_p.setPictureFormat(ImageFormat.NV21);
+           
+            
             
             // 选择合适的预览尺寸
             List<Camera.Size> sizeList = m_p.getSupportedPreviewSizes();
@@ -391,7 +398,7 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 			//默认格式是JPEG
 			Log.d("main", "preview called"+m_p.getPictureFormat());
 			if(m_p.getPictureFormat()==ImageFormat.NV21){
-				Log.d("main", "Format is NV21");
+			//	Log.d("main", "Format is NV21");
 			}
 			
 			 Camera.Parameters parameters = camera.getParameters();
@@ -406,8 +413,11 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 			 byte[] bytes = out.toByteArray();
 			 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 			 			 
-			 Log.d("main", "width"+bitmap.getWidth()+"height"+bitmap.getHeight());
-			
+			// Log.d("main", "width"+bitmap.getWidth()+"height"+bitmap.getHeight());
+			 Mat rgbMat=new Mat();
+			 Utils.bitmapToMat(bitmap, rgbMat);
+			 Log.d("main", "a"+rgbMat.get(10,10)[0]);
+			 //Log.d("mat is ", "width is"+rgbMat.width()+"height is"+rgbMat.height());
 		}
 		
 	}

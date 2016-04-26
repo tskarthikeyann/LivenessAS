@@ -402,11 +402,10 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 
 			 ByteArrayOutputStream out = new ByteArrayOutputStream();
 			 yuv.compressToJpeg(new Rect(0, 0, width, height), 50, out);
-//此处可以尝试直接设置ImageFormat为JPEG
+//此处可以尝试直接设置ImageFormat为JPEG,会出错
 			 byte[] bytes = out.toByteArray();
 			 Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-			 
-			 
+			 			 
 			 Log.d("main", "width"+bitmap.getWidth()+"height"+bitmap.getHeight());
 			
 		}

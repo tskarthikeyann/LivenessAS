@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Identification</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_lida">LidaActivity</string>
+    <string name="title_activity_cback_picture">CBackPictureActivity</string>
+    <string name="title_activity_abstract_id_card2">AbstractIdCardActivity2</string>
+</resources>

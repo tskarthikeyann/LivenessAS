@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#88DBDBDB"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/luxiang_top"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:background="#63B8FF"
+        android:gravity="center"
+        android:text="真人活体验证"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:layout_weight="1"
+        android:id="@+id/luxiang_fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <SurfaceView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#88DBDBDB"
+                android:gravity="center"
+                android:text="请将人头放入下面框中"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageview_right"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/textView5"
+                android:background="#88DBDBDB" />
+
+            <ImageView
+                android:id="@+id/imageView_left"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/textView5"
+                android:background="#88DBDBDB" />
+
+            <TextView
+                android:id="@+id/read_content"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_alignBottom="@id/imageview_right"
+                android:layout_toLeftOf="@id/imageview_right"
+                android:layout_toRightOf="@id/imageView_left"
+                android:background="#88DBDBDB"
+                android:gravity="center"
+                android:text="关门,2 3 4 5"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_video_start"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_style"
+            android:text="录制"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>

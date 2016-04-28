@@ -13,16 +13,14 @@ import android.util.Log;
 *@author zhao
 */
 public class ContrastCompute {
-	public static double computeContrastRatio(Bitmap image){
-		Mat rgbMat = new Mat();
-		Mat grayMat = new Mat();
-		Utils.bitmapToMat(image, rgbMat);
-		Imgproc.cvtColor(rgbMat, grayMat, Imgproc.COLOR_RGBA2GRAY);
-		
+	public static double computeContrastRatio(Mat faceMat){
+//		Mat rgbMat = new Mat();
+//		Mat grayMat = new Mat();
+//		Utils.bitmapToMat(image, rgbMat);
+//		Imgproc.cvtColor(rgbMat, grayMat, Imgproc.COLOR_RGBA2GRAY);
+//		Mat faceMat=new Mat(grayMat, new Rect(200,200,100,100));	
 		//获取脸部区域，需要精确调节,或者根据人脸检测结果获取
-		Mat faceMat=new Mat(grayMat, new Rect(200,200,100,100));
-		//Log.d("main", "point"+faceMat.get(0,0)[0]);
-		//Log.d("main", "width"+faceMat.width()+"height"+faceMat.height());
+	
 		double s=0;
 		for(int i=1;i<faceMat.width()-2;i++){
 			for (int j=1;j<faceMat.height()-2;j++) {
@@ -34,7 +32,7 @@ public class ContrastCompute {
 						
 			}
 		}
-		int k=(faceMat.width()-2)*(faceMat.height()-2);
+		int k=4*(faceMat.width()-2)*(faceMat.height()-2);
 		
 		return s/k;
 		

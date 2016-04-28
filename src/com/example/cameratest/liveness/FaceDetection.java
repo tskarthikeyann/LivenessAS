@@ -57,7 +57,7 @@ public class FaceDetection {
 		}
 	}
 
-	public static boolean faceDetectWithOpenCV(Bitmap image) {
+	public static Mat faceDetectWithOpenCV(Bitmap image) {
 
 		Mat rgbMat = new Mat();
 		Mat grayMat = new Mat();
@@ -65,18 +65,19 @@ public class FaceDetection {
 		Imgproc.cvtColor(rgbMat, grayMat, Imgproc.COLOR_RGBA2GRAY);
 
 		if (mCascadeClassifier.empty()) {
-			return false;
+			Log.d("main", "Cascade can not loaded");
 		}
 
 		MatOfRect faces = new MatOfRect();
 
 		mCascadeClassifier.detectMultiScale(grayMat, faces);
 		Rect[] rectFaces = faces.toArray();
-		// Log.d("main", "OpenCV faces "+rectFaces.length);
+		//Log.d("main", "OpenCV faces "+rectFaces.length);
 		if (rectFaces.length > 0) {
-			return true;
+			Mat faceMat=new Mat(grayMat,rectFaces[0]);
+			return faceMat;
 		} else {
-			return false;
+			return null;
 		}
 
 	}

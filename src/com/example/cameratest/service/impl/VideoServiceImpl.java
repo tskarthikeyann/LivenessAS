@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
+import org.opencv.core.Mat;
+
 import com.example.cameratest.R;
 import com.example.cameratest.liveness.ContrastCompute;
 import com.example.cameratest.liveness.FaceDetection;
@@ -404,6 +406,7 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 		return new byte[0];
 	}
 
+	
 	/////////
 	/// 这里是我写的
 	private class PreviewCallbackInstance implements PreviewCallback {
@@ -416,33 +419,64 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 			//if (m_p.getPictureFormat() == ImageFormat.NV21) {
 				// Log.d("main", "Format is NV21");
 			//}
-
-			Camera.Parameters parameters = camera.getParameters();
-			int width = parameters.getPreviewSize().width;
-			int height = parameters.getPreviewSize().height;
-
-			YuvImage yuv = new YuvImage(data, parameters.getPreviewFormat(), width, height, null);
-
-			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			yuv.compressToJpeg(new Rect(0, 0, width, height), 50, out);
-			// 此处可以尝试直接设置ImageFormat为JPEG,会出错
-			byte[] bytes = out.toByteArray();
-			Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-
-			Matrix matrix = new Matrix();
-			matrix.postRotate(270);
-			Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
-			Bitmap rotatedBitmap = Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(),
-					scaledBitmap.getHeight(), matrix, true);
-			if(FaceDetection.faceDetectWithOpenCV(rotatedBitmap)){
+			//将NV21转为Bitmap
+			Bitmap bitmap = NV21ToBitmap(data);
+			//将图片旋转
+			Bitmap rotatedBitmap = RotatedBitmap(bitmap);
+			
+			Mat faceMat=FaceDetection.faceDetectWithOpenCV(rotatedBitmap);
+			if(faceMat!=null){
 				Log.d("main", "Face detected");
-				Log.d("main", "contract is"+ContrastCompute.computeContrastRatio(rotatedBitmap));
-			}	
-
+				double contrstRatio=ContrastCompute.computeContrastRatio(faceMat);
+				Log.d("main", "contract is"+contrstRatio);
+				if(judgeLivenessWithContrstRatio(contrstRatio)){
+					Log.d("main", "It is alive")
+				}else{
+					Log.d("main", "It is not alve")
+				}
+					
+			}else{
+				Log.d("main", "no face detected");
+			}
 		}
 
 	}
+	
+	private Bitmap NV21ToBitmap(byte[] data){
+		Camera.Parameters parameters = camera.getParameters();
+		int width = parameters.getPreviewSize().width;
+		int height = parameters.getPreviewSize().height;
 
+		YuvImage yuv = new YuvImage(data, parameters.getPreviewFormat(), width, height, null);
+
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		yuv.compressToJpeg(new Rect(0, 0, width, height), 50, out);
+		// 此处可以尝试直接设置ImageFormat为JPEG,会出错
+		byte[] bytes = out.toByteArray();
+		return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+	}
+	
+	private Bitmap RotatedBitmap(Bitmap bitmap){
+		Camera.Parameters parameters = camera.getParameters();
+		int width = parameters.getPreviewSize().width;
+		int height = parameters.getPreviewSize().height;
+		//将图片旋转270度
+		Matrix matrix = new Matrix();
+		matrix.postRotate(270);
+		Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, width, height, true);
+		return Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(),
+				scaledBitmap.getHeight(), matrix, true);
+	}
+	
+	private boolean judgeLivenessWithContrstRatio(double contrastRatio){
+		//根据对比度判断是不是活体，具体参数需要实验
+		if(contrastRatio>20){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 	private class FaceDetectionCallback implements FaceDetectionListener {
 
 		@Override

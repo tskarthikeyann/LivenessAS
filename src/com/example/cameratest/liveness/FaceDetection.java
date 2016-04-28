@@ -21,7 +21,10 @@ import android.graphics.Bitmap;
 import android.media.FaceDetector;
 import android.os.Environment;
 import android.util.Log;
-
+/**
+*Face detection with OpenCV and Android API
+*@author zhao
+*/
 public class FaceDetection {
 	public static CascadeClassifier mCascadeClassifier = null;
 	public static File mCascadeFile;
@@ -69,7 +72,7 @@ public class FaceDetection {
 
 		mCascadeClassifier.detectMultiScale(grayMat, faces);
 		Rect[] rectFaces = faces.toArray();
-		// Log.d("main", "OpenCv faces "+rectFaces.length);
+		// Log.d("main", "OpenCV faces "+rectFaces.length);
 		if (rectFaces.length > 0) {
 			return true;
 		} else {

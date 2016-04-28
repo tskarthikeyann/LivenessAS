@@ -27,7 +27,7 @@ public class LidaActivity extends Activity {
 	 */
 	public static ProgressDialog progressDialog;
 
-	/// load so file
+	// load so file
 	static {
 		OpenCVLoader.initDebug();
 		System.loadLibrary("liveness");

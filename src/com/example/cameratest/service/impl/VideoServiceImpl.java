@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.example.cameratest.R;
+import com.example.cameratest.liveness.ContrastCompute;
 import com.example.cameratest.liveness.FaceDetection;
 import com.example.cameratest.service.AbstractCameraBaseService;
 import com.example.cameratest.service.VideoService;
@@ -301,6 +302,11 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 
 			// 我写的
 			m_p.setPictureFormat(ImageFormat.NV21);
+//			List<Integer> a=m_p.getSupportedPreviewFrameRates();
+//			for(Integer x:a){
+//				Log.d("main", "rate"+x);
+//			}
+			m_p.setPreviewFrameRate(20);
 			/////////////////
 
 			// 选择合适的预览尺寸
@@ -374,6 +380,7 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 		camera.setParameters(m_p);
 		/////////
 		/// 这里是我写的
+		
 		camera.setPreviewCallback(new PreviewCallbackInstance());
 		camera.setFaceDetectionListener(new FaceDetectionCallback());
 		camera.startFaceDetection();
@@ -429,7 +436,8 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 					scaledBitmap.getHeight(), matrix, true);
 			if(FaceDetection.faceDetectWithOpenCV(rotatedBitmap)){
 				Log.d("main", "Face detected");
-			}
+				Log.d("main", "contract is"+ContrastCompute.computeContrastRatio(rotatedBitmap));
+			}	
 
 		}
 

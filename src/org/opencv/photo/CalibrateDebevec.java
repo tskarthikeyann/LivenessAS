@@ -4,125 +4,110 @@
 //
 package org.opencv.photo;
 
-
-
 // C++: class CalibrateDebevec
 //javadoc: CalibrateDebevec
 public class CalibrateDebevec extends CalibrateCRF {
 
-    protected CalibrateDebevec(long addr) { super(addr); }
+	protected CalibrateDebevec(long addr) {
+		super(addr);
+	}
 
+	//
+	// C++: bool getRandom()
+	//
 
-    //
-    // C++:  bool getRandom()
-    //
+	// javadoc: CalibrateDebevec::getRandom()
+	public boolean getRandom() {
 
-    //javadoc: CalibrateDebevec::getRandom()
-    public  boolean getRandom()
-    {
-        
-        boolean retVal = getRandom_0(nativeObj);
-        
-        return retVal;
-    }
+		boolean retVal = getRandom_0(nativeObj);
 
+		return retVal;
+	}
 
-    //
-    // C++:  float getLambda()
-    //
+	//
+	// C++: float getLambda()
+	//
 
-    //javadoc: CalibrateDebevec::getLambda()
-    public  float getLambda()
-    {
-        
-        float retVal = getLambda_0(nativeObj);
-        
-        return retVal;
-    }
+	// javadoc: CalibrateDebevec::getLambda()
+	public float getLambda() {
 
+		float retVal = getLambda_0(nativeObj);
 
-    //
-    // C++:  int getSamples()
-    //
+		return retVal;
+	}
 
-    //javadoc: CalibrateDebevec::getSamples()
-    public  int getSamples()
-    {
-        
-        int retVal = getSamples_0(nativeObj);
-        
-        return retVal;
-    }
+	//
+	// C++: int getSamples()
+	//
 
+	// javadoc: CalibrateDebevec::getSamples()
+	public int getSamples() {
 
-    //
-    // C++:  void setLambda(float lambda)
-    //
+		int retVal = getSamples_0(nativeObj);
 
-    //javadoc: CalibrateDebevec::setLambda(lambda)
-    public  void setLambda(float lambda)
-    {
-        
-        setLambda_0(nativeObj, lambda);
-        
-        return;
-    }
+		return retVal;
+	}
 
+	//
+	// C++: void setLambda(float lambda)
+	//
 
-    //
-    // C++:  void setRandom(bool random)
-    //
+	// javadoc: CalibrateDebevec::setLambda(lambda)
+	public void setLambda(float lambda) {
 
-    //javadoc: CalibrateDebevec::setRandom(random)
-    public  void setRandom(boolean random)
-    {
-        
-        setRandom_0(nativeObj, random);
-        
-        return;
-    }
+		setLambda_0(nativeObj, lambda);
 
+		return;
+	}
 
-    //
-    // C++:  void setSamples(int samples)
-    //
+	//
+	// C++: void setRandom(bool random)
+	//
 
-    //javadoc: CalibrateDebevec::setSamples(samples)
-    public  void setSamples(int samples)
-    {
-        
-        setSamples_0(nativeObj, samples);
-        
-        return;
-    }
+	// javadoc: CalibrateDebevec::setRandom(random)
+	public void setRandom(boolean random) {
 
+		setRandom_0(nativeObj, random);
 
-    @Override
-    protected void finalize() throws Throwable {
-        delete(nativeObj);
-    }
+		return;
+	}
 
+	//
+	// C++: void setSamples(int samples)
+	//
 
+	// javadoc: CalibrateDebevec::setSamples(samples)
+	public void setSamples(int samples) {
 
-    // C++:  bool getRandom()
-    private static native boolean getRandom_0(long nativeObj);
+		setSamples_0(nativeObj, samples);
 
-    // C++:  float getLambda()
-    private static native float getLambda_0(long nativeObj);
+		return;
+	}
 
-    // C++:  int getSamples()
-    private static native int getSamples_0(long nativeObj);
+	@Override
+	protected void finalize() throws Throwable {
+		delete(nativeObj);
+	}
 
-    // C++:  void setLambda(float lambda)
-    private static native void setLambda_0(long nativeObj, float lambda);
+	// C++: bool getRandom()
+	private static native boolean getRandom_0(long nativeObj);
 
-    // C++:  void setRandom(bool random)
-    private static native void setRandom_0(long nativeObj, boolean random);
+	// C++: float getLambda()
+	private static native float getLambda_0(long nativeObj);
 
-    // C++:  void setSamples(int samples)
-    private static native void setSamples_0(long nativeObj, int samples);
+	// C++: int getSamples()
+	private static native int getSamples_0(long nativeObj);
 
-    // native support for java finalize()
-    private static native void delete(long nativeObj);
+	// C++: void setLambda(float lambda)
+	private static native void setLambda_0(long nativeObj, float lambda);
+
+	// C++: void setRandom(bool random)
+	private static native void setRandom_0(long nativeObj, boolean random);
+
+	// C++: void setSamples(int samples)
+	private static native void setSamples_0(long nativeObj, int samples);
+
+	// native support for java finalize()
+	private static native void delete(long nativeObj);
 
 }

@@ -1,6 +1,5 @@
 package com.example.cameratest.activities;
 
-
 import com.example.cameratest.service.impl.BLiveAuthenServiceImpl;
 
 /**
@@ -10,13 +9,13 @@ import com.example.cameratest.service.impl.BLiveAuthenServiceImpl;
  * @e-mail mike@mikecoder.net
  */
 public class BVerifyPersonActivity extends AbstractVerifyPersonActivity {
-    @Override
-    void setType() {
+	@Override
+	void setType() {
 
-    }
+	}
 
-    @Override
-    protected void setAuthenService() {
-        this.authenService = new BLiveAuthenServiceImpl(this.mSurfaceHolder);
-    }
+	@Override
+	protected void setAuthenService() {
+		this.authenService = new BLiveAuthenServiceImpl(this.mSurfaceHolder);
+	}
 }

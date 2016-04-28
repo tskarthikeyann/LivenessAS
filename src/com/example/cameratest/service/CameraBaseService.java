@@ -7,30 +7,32 @@ import android.hardware.Camera;
  */
 public interface CameraBaseService {
 
-    /**
-     * get initialized camera
-     * @return
-     */
-    public Camera getCamera();
+	/**
+	 * get initialized camera
+	 * 
+	 * @return
+	 */
+	public Camera getCamera();
 
-    /**
-     * create a new camera
-     */
-    public Camera createSurface();
+	/**
+	 * create a new camera
+	 */
+	public Camera createSurface();
 
-    /**
-     * destroy a camera
-     */
-    public void destroySurface();
+	/**
+	 * destroy a camera
+	 */
+	public void destroySurface();
 
-    /**
-     * initialize camera parameters
-     */
-    public void changeSurface();
+	/**
+	 * initialize camera parameters
+	 */
+	public void changeSurface();
 
-    /**
-     * according to device type, set camera's display orientation
-     * @param myCamera
-     */
-    public void setCameraDisplayOrientation(Camera myCamera);
+	/**
+	 * according to device type, set camera's display orientation
+	 * 
+	 * @param myCamera
+	 */
+	public void setCameraDisplayOrientation(Camera myCamera);
 }

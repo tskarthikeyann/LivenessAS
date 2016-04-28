@@ -44,7 +44,8 @@
         android:resizeable="true"
         android:smallScreens="true" />	
        <application
-        android:allowBackup="true"
+        android:name="com.example.cameratest.activities.MyApplication"
+       	android:allowBackup="true"
         android:configChanges="orientation|keyboardHidden"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

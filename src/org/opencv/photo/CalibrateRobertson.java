@@ -10,102 +10,91 @@ import org.opencv.core.Mat;
 //javadoc: CalibrateRobertson
 public class CalibrateRobertson extends CalibrateCRF {
 
-    protected CalibrateRobertson(long addr) { super(addr); }
+	protected CalibrateRobertson(long addr) {
+		super(addr);
+	}
 
+	//
+	// C++: Mat getRadiance()
+	//
 
-    //
-    // C++:  Mat getRadiance()
-    //
+	// javadoc: CalibrateRobertson::getRadiance()
+	public Mat getRadiance() {
 
-    //javadoc: CalibrateRobertson::getRadiance()
-    public  Mat getRadiance()
-    {
-        
-        Mat retVal = new Mat(getRadiance_0(nativeObj));
-        
-        return retVal;
-    }
+		Mat retVal = new Mat(getRadiance_0(nativeObj));
 
+		return retVal;
+	}
 
-    //
-    // C++:  float getThreshold()
-    //
+	//
+	// C++: float getThreshold()
+	//
 
-    //javadoc: CalibrateRobertson::getThreshold()
-    public  float getThreshold()
-    {
-        
-        float retVal = getThreshold_0(nativeObj);
-        
-        return retVal;
-    }
+	// javadoc: CalibrateRobertson::getThreshold()
+	public float getThreshold() {
 
+		float retVal = getThreshold_0(nativeObj);
 
-    //
-    // C++:  int getMaxIter()
-    //
+		return retVal;
+	}
 
-    //javadoc: CalibrateRobertson::getMaxIter()
-    public  int getMaxIter()
-    {
-        
-        int retVal = getMaxIter_0(nativeObj);
-        
-        return retVal;
-    }
+	//
+	// C++: int getMaxIter()
+	//
 
+	// javadoc: CalibrateRobertson::getMaxIter()
+	public int getMaxIter() {
 
-    //
-    // C++:  void setMaxIter(int max_iter)
-    //
+		int retVal = getMaxIter_0(nativeObj);
 
-    //javadoc: CalibrateRobertson::setMaxIter(max_iter)
-    public  void setMaxIter(int max_iter)
-    {
-        
-        setMaxIter_0(nativeObj, max_iter);
-        
-        return;
-    }
+		return retVal;
+	}
 
+	//
+	// C++: void setMaxIter(int max_iter)
+	//
 
-    //
-    // C++:  void setThreshold(float threshold)
-    //
+	// javadoc: CalibrateRobertson::setMaxIter(max_iter)
+	public void setMaxIter(int max_iter) {
 
-    //javadoc: CalibrateRobertson::setThreshold(threshold)
-    public  void setThreshold(float threshold)
-    {
-        
-        setThreshold_0(nativeObj, threshold);
-        
-        return;
-    }
+		setMaxIter_0(nativeObj, max_iter);
 
+		return;
+	}
 
-    @Override
-    protected void finalize() throws Throwable {
-        delete(nativeObj);
-    }
+	//
+	// C++: void setThreshold(float threshold)
+	//
 
+	// javadoc: CalibrateRobertson::setThreshold(threshold)
+	public void setThreshold(float threshold) {
 
+		setThreshold_0(nativeObj, threshold);
 
-    // C++:  Mat getRadiance()
-    private static native long getRadiance_0(long nativeObj);
+		return;
+	}
 
-    // C++:  float getThreshold()
-    private static native float getThreshold_0(long nativeObj);
+	@Override
+	protected void finalize() throws Throwable {
+		delete(nativeObj);
+	}
 
-    // C++:  int getMaxIter()
-    private static native int getMaxIter_0(long nativeObj);
+	// C++: Mat getRadiance()
+	private static native long getRadiance_0(long nativeObj);
 
-    // C++:  void setMaxIter(int max_iter)
-    private static native void setMaxIter_0(long nativeObj, int max_iter);
+	// C++: float getThreshold()
+	private static native float getThreshold_0(long nativeObj);
 
-    // C++:  void setThreshold(float threshold)
-    private static native void setThreshold_0(long nativeObj, float threshold);
+	// C++: int getMaxIter()
+	private static native int getMaxIter_0(long nativeObj);
 
-    // native support for java finalize()
-    private static native void delete(long nativeObj);
+	// C++: void setMaxIter(int max_iter)
+	private static native void setMaxIter_0(long nativeObj, int max_iter);
+
+	// C++: void setThreshold(float threshold)
+	private static native void setThreshold_0(long nativeObj, float threshold);
+
+	// native support for java finalize()
+	private static native void delete(long nativeObj);
 
 }

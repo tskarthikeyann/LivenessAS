@@ -10,69 +10,63 @@ import java.lang.String;
 //javadoc: Algorithm
 public class Algorithm {
 
-    protected final long nativeObj;
-    protected Algorithm(long addr) { nativeObj = addr; }
+	protected final long nativeObj;
 
+	protected Algorithm(long addr) {
+		nativeObj = addr;
+	}
 
-    //
-    // C++:  String getDefaultName()
-    //
+	//
+	// C++: String getDefaultName()
+	//
 
-    //javadoc: Algorithm::getDefaultName()
-    public  String getDefaultName()
-    {
-        
-        String retVal = getDefaultName_0(nativeObj);
-        
-        return retVal;
-    }
+	// javadoc: Algorithm::getDefaultName()
+	public String getDefaultName() {
 
+		String retVal = getDefaultName_0(nativeObj);
 
-    //
-    // C++:  void clear()
-    //
+		return retVal;
+	}
 
-    //javadoc: Algorithm::clear()
-    public  void clear()
-    {
-        
-        clear_0(nativeObj);
-        
-        return;
-    }
+	//
+	// C++: void clear()
+	//
 
+	// javadoc: Algorithm::clear()
+	public void clear() {
 
-    //
-    // C++:  void save(String filename)
-    //
+		clear_0(nativeObj);
 
-    //javadoc: Algorithm::save(filename)
-    public  void save(String filename)
-    {
-        
-        save_0(nativeObj, filename);
-        
-        return;
-    }
+		return;
+	}
 
+	//
+	// C++: void save(String filename)
+	//
 
-    @Override
-    protected void finalize() throws Throwable {
-        delete(nativeObj);
-    }
+	// javadoc: Algorithm::save(filename)
+	public void save(String filename) {
 
+		save_0(nativeObj, filename);
 
+		return;
+	}
 
-    // C++:  String getDefaultName()
-    private static native String getDefaultName_0(long nativeObj);
+	@Override
+	protected void finalize() throws Throwable {
+		delete(nativeObj);
+	}
 
-    // C++:  void clear()
-    private static native void clear_0(long nativeObj);
+	// C++: String getDefaultName()
+	private static native String getDefaultName_0(long nativeObj);
 
-    // C++:  void save(String filename)
-    private static native void save_0(long nativeObj, String filename);
+	// C++: void clear()
+	private static native void clear_0(long nativeObj);
 
-    // native support for java finalize()
-    private static native void delete(long nativeObj);
+	// C++: void save(String filename)
+	private static native void save_0(long nativeObj, String filename);
+
+	// native support for java finalize()
+	private static native void delete(long nativeObj);
 
 }

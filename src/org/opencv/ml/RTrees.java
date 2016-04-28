@@ -11,153 +11,136 @@ import org.opencv.core.TermCriteria;
 //javadoc: RTrees
 public class RTrees extends DTrees {
 
-    protected RTrees(long addr) { super(addr); }
+	protected RTrees(long addr) {
+		super(addr);
+	}
 
+	//
+	// C++: Mat getVarImportance()
+	//
 
-    //
-    // C++:  Mat getVarImportance()
-    //
+	// javadoc: RTrees::getVarImportance()
+	public Mat getVarImportance() {
 
-    //javadoc: RTrees::getVarImportance()
-    public  Mat getVarImportance()
-    {
-        
-        Mat retVal = new Mat(getVarImportance_0(nativeObj));
-        
-        return retVal;
-    }
+		Mat retVal = new Mat(getVarImportance_0(nativeObj));
 
+		return retVal;
+	}
 
-    //
-    // C++: static Ptr_RTrees create()
-    //
+	//
+	// C++: static Ptr_RTrees create()
+	//
 
-    //javadoc: RTrees::create()
-    public static RTrees create()
-    {
-        
-        RTrees retVal = new RTrees(create_0());
-        
-        return retVal;
-    }
+	// javadoc: RTrees::create()
+	public static RTrees create() {
 
+		RTrees retVal = new RTrees(create_0());
 
-    //
-    // C++:  TermCriteria getTermCriteria()
-    //
+		return retVal;
+	}
 
-    //javadoc: RTrees::getTermCriteria()
-    public  TermCriteria getTermCriteria()
-    {
-        
-        TermCriteria retVal = new TermCriteria(getTermCriteria_0(nativeObj));
-        
-        return retVal;
-    }
+	//
+	// C++: TermCriteria getTermCriteria()
+	//
 
+	// javadoc: RTrees::getTermCriteria()
+	public TermCriteria getTermCriteria() {
 
-    //
-    // C++:  bool getCalculateVarImportance()
-    //
+		TermCriteria retVal = new TermCriteria(getTermCriteria_0(nativeObj));
 
-    //javadoc: RTrees::getCalculateVarImportance()
-    public  boolean getCalculateVarImportance()
-    {
-        
-        boolean retVal = getCalculateVarImportance_0(nativeObj);
-        
-        return retVal;
-    }
+		return retVal;
+	}
 
+	//
+	// C++: bool getCalculateVarImportance()
+	//
 
-    //
-    // C++:  int getActiveVarCount()
-    //
+	// javadoc: RTrees::getCalculateVarImportance()
+	public boolean getCalculateVarImportance() {
 
-    //javadoc: RTrees::getActiveVarCount()
-    public  int getActiveVarCount()
-    {
-        
-        int retVal = getActiveVarCount_0(nativeObj);
-        
-        return retVal;
-    }
+		boolean retVal = getCalculateVarImportance_0(nativeObj);
 
+		return retVal;
+	}
 
-    //
-    // C++:  void setActiveVarCount(int val)
-    //
+	//
+	// C++: int getActiveVarCount()
+	//
 
-    //javadoc: RTrees::setActiveVarCount(val)
-    public  void setActiveVarCount(int val)
-    {
-        
-        setActiveVarCount_0(nativeObj, val);
-        
-        return;
-    }
+	// javadoc: RTrees::getActiveVarCount()
+	public int getActiveVarCount() {
 
+		int retVal = getActiveVarCount_0(nativeObj);
 
-    //
-    // C++:  void setCalculateVarImportance(bool val)
-    //
+		return retVal;
+	}
 
-    //javadoc: RTrees::setCalculateVarImportance(val)
-    public  void setCalculateVarImportance(boolean val)
-    {
-        
-        setCalculateVarImportance_0(nativeObj, val);
-        
-        return;
-    }
+	//
+	// C++: void setActiveVarCount(int val)
+	//
 
+	// javadoc: RTrees::setActiveVarCount(val)
+	public void setActiveVarCount(int val) {
 
-    //
-    // C++:  void setTermCriteria(TermCriteria val)
-    //
+		setActiveVarCount_0(nativeObj, val);
 
-    //javadoc: RTrees::setTermCriteria(val)
-    public  void setTermCriteria(TermCriteria val)
-    {
-        
-        setTermCriteria_0(nativeObj, val.type, val.maxCount, val.epsilon);
-        
-        return;
-    }
+		return;
+	}
 
+	//
+	// C++: void setCalculateVarImportance(bool val)
+	//
 
-    @Override
-    protected void finalize() throws Throwable {
-        delete(nativeObj);
-    }
+	// javadoc: RTrees::setCalculateVarImportance(val)
+	public void setCalculateVarImportance(boolean val) {
 
+		setCalculateVarImportance_0(nativeObj, val);
 
+		return;
+	}
 
-    // C++:  Mat getVarImportance()
-    private static native long getVarImportance_0(long nativeObj);
+	//
+	// C++: void setTermCriteria(TermCriteria val)
+	//
 
-    // C++: static Ptr_RTrees create()
-    private static native long create_0();
+	// javadoc: RTrees::setTermCriteria(val)
+	public void setTermCriteria(TermCriteria val) {
 
-    // C++:  TermCriteria getTermCriteria()
-    private static native double[] getTermCriteria_0(long nativeObj);
+		setTermCriteria_0(nativeObj, val.type, val.maxCount, val.epsilon);
 
-    // C++:  bool getCalculateVarImportance()
-    private static native boolean getCalculateVarImportance_0(long nativeObj);
+		return;
+	}
 
-    // C++:  int getActiveVarCount()
-    private static native int getActiveVarCount_0(long nativeObj);
+	@Override
+	protected void finalize() throws Throwable {
+		delete(nativeObj);
+	}
 
-    // C++:  void setActiveVarCount(int val)
-    private static native void setActiveVarCount_0(long nativeObj, int val);
+	// C++: Mat getVarImportance()
+	private static native long getVarImportance_0(long nativeObj);
 
-    // C++:  void setCalculateVarImportance(bool val)
-    private static native void setCalculateVarImportance_0(long nativeObj, boolean val);
+	// C++: static Ptr_RTrees create()
+	private static native long create_0();
 
-    // C++:  void setTermCriteria(TermCriteria val)
-    private static native void setTermCriteria_0(long nativeObj, int val_type, int val_maxCount, double val_epsilon);
+	// C++: TermCriteria getTermCriteria()
+	private static native double[] getTermCriteria_0(long nativeObj);
 
-    // native support for java finalize()
-    private static native void delete(long nativeObj);
+	// C++: bool getCalculateVarImportance()
+	private static native boolean getCalculateVarImportance_0(long nativeObj);
+
+	// C++: int getActiveVarCount()
+	private static native int getActiveVarCount_0(long nativeObj);
+
+	// C++: void setActiveVarCount(int val)
+	private static native void setActiveVarCount_0(long nativeObj, int val);
+
+	// C++: void setCalculateVarImportance(bool val)
+	private static native void setCalculateVarImportance_0(long nativeObj, boolean val);
+
+	// C++: void setTermCriteria(TermCriteria val)
+	private static native void setTermCriteria_0(long nativeObj, int val_type, int val_maxCount, double val_epsilon);
+
+	// native support for java finalize()
+	private static native void delete(long nativeObj);
 
 }

@@ -6,16 +6,15 @@ import android.util.Log;
 
 @SuppressLint("SdCardPath")
 public class MediaUtil {
-	//使用录音机的工具类
+	// 使用录音机的工具类
 	private static final String TAG = "MediaUtil";
 
-	//MediaRecorder可以实现录音和录像。
+	// MediaRecorder可以实现录音和录像。
 	private MediaRecorder mRecorder;
-	//开始的标志
+	// 开始的标志
 	private boolean mStartedFlg = false;
-	//正在录制的标志
+	// 正在录制的标志
 	private boolean isRecording = false;
-
 
 	public void mediaStop() {
 		// stop
@@ -27,7 +26,7 @@ public class MediaUtil {
 				mRecorder.stop();
 				Log.d(TAG, "af mRecorder.stop(");
 				mRecorder.reset();
-									
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

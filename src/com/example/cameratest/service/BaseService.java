@@ -7,18 +7,22 @@ import android.graphics.Bitmap;
  */
 public interface BaseService {
 
-    /**
-     * create bitmap according to different devices
-     * @param mBitmap
-     */
-    public Bitmap createPhotoByDeviceType(Bitmap mBitmap);
+	/**
+	 * create bitmap according to different devices
+	 * 
+	 * @param mBitmap
+	 */
+	public Bitmap createPhotoByDeviceType(Bitmap mBitmap);
 
-    /**
-     * convert pcm file to wav file, and return wav byte array.
-     * @param origFile:file with suffix .pcm
-     * @param audioFile: file with suffix ".wav",
-     * @return wav file bytes
-     */
-    public byte[] readSnapAudio(String origFile, String audioFile);
+	/**
+	 * convert pcm file to wav file, and return wav byte array.
+	 * 
+	 * @param origFile:file
+	 *            with suffix .pcm
+	 * @param audioFile:
+	 *            file with suffix ".wav",
+	 * @return wav file bytes
+	 */
+	public byte[] readSnapAudio(String origFile, String audioFile);
 
 }

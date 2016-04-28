@@ -6,7 +6,6 @@ import android.view.SurfaceHolder;
 
 import com.example.cameratest.service.AbstractLiveAuthenService;
 
-
 /**
  * @author Mike
  * @project LIDA
@@ -14,33 +13,33 @@ import com.example.cameratest.service.AbstractLiveAuthenService;
  * @e-mail mike@mikecoder.net
  */
 public class BLiveAuthenServiceImpl extends AbstractLiveAuthenService {
-    /**
-     * constructor
-     *
-     * @param mSurfaceHolder
-     */
-    public BLiveAuthenServiceImpl(SurfaceHolder mSurfaceHolder) {
-        super(mSurfaceHolder);
-    }
+	/**
+	 * constructor
+	 *
+	 * @param mSurfaceHolder
+	 */
+	public BLiveAuthenServiceImpl(SurfaceHolder mSurfaceHolder) {
+		super(mSurfaceHolder);
+	}
 
-    @Override
-    protected void setType() {
+	@Override
+	protected void setType() {
 
-    }
+	}
 
-    @Override
-    public Bitmap createPhotoByDeviceType(Bitmap mBitmap) {
-        Bitmap finalBitmap = createPhoneJpeg(mBitmap);
-        return finalBitmap;
-    }
+	@Override
+	public Bitmap createPhotoByDeviceType(Bitmap mBitmap) {
+		Bitmap finalBitmap = createPhoneJpeg(mBitmap);
+		return finalBitmap;
+	}
 
-    @Override
-    public byte[] readSnapAudio(String origFile, String audioFile) {
-        return new byte[0];
-    }
+	@Override
+	public byte[] readSnapAudio(String origFile, String audioFile) {
+		return new byte[0];
+	}
 
-    @Override
-    public void setCameraDisplayOrientation(Camera myCamera) {
-        myCamera.setDisplayOrientation(90);
-    }
+	@Override
+	public void setCameraDisplayOrientation(Camera myCamera) {
+		myCamera.setDisplayOrientation(90);
+	}
 }

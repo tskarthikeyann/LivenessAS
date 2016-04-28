@@ -1,13 +1,11 @@
 package com.example.cameratest.liveness;
 
-
-
 public class LivenessDetection {
-	
-	static{
+
+	static {
 		System.loadLibrary("liveness");
 	}
-	
+
 	public static native boolean detectLiveness(int[] image);
-	
+
 }

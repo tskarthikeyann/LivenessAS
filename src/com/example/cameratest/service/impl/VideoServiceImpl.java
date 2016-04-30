@@ -430,9 +430,9 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 				double contrstRatio=ContrastCompute.computeContrastRatio(faceMat);
 				Log.d("main", "contract is"+contrstRatio);
 				if(judgeLivenessWithContrstRatio(contrstRatio)){
-					Log.d("main", "It is alive")
+					Log.d("main", "It is alive");
 				}else{
-					Log.d("main", "It is not alve")
+					Log.d("main", "It is not alve");
 				}
 					
 			}else{

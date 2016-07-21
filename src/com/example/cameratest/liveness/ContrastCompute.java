@@ -22,8 +22,8 @@ public class ContrastCompute {
 		//获取脸部区域，需要精确调节,或者根据人脸检测结果获取
 	
 		double s=0;
-		for(int i=1;i<faceMat.width()-2;i++){
-			for (int j=1;j<faceMat.height()-2;j++) {
+		for(int i=1;i<faceMat.height()-1;i++){
+			for (int j=1;j<faceMat.width()-1;j++) {
 				double st=Math.pow((faceMat.get(i,j)[0]-faceMat.get(i-1,j)[0]), 2)+
 						Math.pow((faceMat.get(i,j)[0]-faceMat.get(i+1,j)[0]), 2)+
 						Math.pow((faceMat.get(i,j)[0]-faceMat.get(i,j-1)[0]), 2)+

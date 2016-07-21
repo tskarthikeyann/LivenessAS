@@ -441,6 +441,10 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 		}
 
 	}
+	/**
+	*Transform NV21 bitstream into Bitmap
+	*@author zhao
+	*/
 	
 	private Bitmap NV21ToBitmap(byte[] data){
 		Camera.Parameters parameters = camera.getParameters();
@@ -455,6 +459,10 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 		byte[] bytes = out.toByteArray();
 		return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
 	}
+	/**
+	*Rotate the bitmap
+	*@author zhao
+	*/
 	
 	private Bitmap RotatedBitmap(Bitmap bitmap){
 		Camera.Parameters parameters = camera.getParameters();
@@ -467,6 +475,10 @@ public class VideoServiceImpl extends AbstractCameraBaseService implements Video
 		return Bitmap.createBitmap(scaledBitmap, 0, 0, scaledBitmap.getWidth(),
 				scaledBitmap.getHeight(), matrix, true);
 	}
+	/**
+	*Liveness detection with contrast ratio
+	*@author zhao
+	*/
 	
 	private boolean judgeLivenessWithContrstRatio(double contrastRatio){
 		//根据对比度判断是不是活体，具体参数需要实验

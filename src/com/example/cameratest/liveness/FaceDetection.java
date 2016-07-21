@@ -56,7 +56,10 @@ public class FaceDetection {
 			Log.e("main", "Failed to load cascade. Exception thrown: " + e);
 		}
 	}
-
+	/**
+	*Face detection with OpenCV 
+	*@author zhao
+	*/
 	public static Mat faceDetectWithOpenCV(Bitmap image) {
 
 		Mat rgbMat = new Mat();
@@ -81,7 +84,10 @@ public class FaceDetection {
 		}
 
 	}
-
+	/**
+	*Face detection with Android API
+	*@author zhao
+	*/
 	public static boolean faceDetectWithGoogle(Bitmap image) {
 		if (image == null) {
 			Log.d("main", "image null");
